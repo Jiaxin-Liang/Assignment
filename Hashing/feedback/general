@@ -1,0 +1,39 @@
+People who had code that ran *very* slowly didn't seem to have understood
+that hashing is really fast compared to say an unsorted linear array -
+many programs would have been faster *not* using hashing :-( You should
+have tested that your code was indeed quicker than a very simple, rival,
+approach ?
+
+Quite a number chose to resize their array every time an insertion
+occurs. This totally destroys the power of hashing, and makes the approach
+(generally) slower than an unsorted linked list.
+
+Some people used a for() loop to iterate over the whole table during,
+e.g., an insertion - this can't possibly be right - it turns the O(1)
+algorithm into O(n).
+
+It's a little pedantic, but I liked that many people sorted their
+functions in their .c into the order that the .h file listed them,
+and then put "other" functions later. Some people followed my OOP-style
+convention of then naming those "private" functions in a systematic manner
+(e.g. with a _ preceding the name).
+
+Some people assumed that the key must be a string or an int - this is
+not the case - hashing unsigned long double (etc.) should be perfectly
+fine too. Some only used the first 4 bytes of the key to hash with in
+this case which is not correct - you could have been passing an entire
+190-byte struct and expecting a sensible hash to be returned ... This
+is what is meant by polymorphic ADTs.
+
+Some people seemed to have a sensible hash function for strings,
+but for other data didn't loop over all the bytes to compute a hash,
+they sometimes just took the first one - this will lead to a horrendous
+number of collisions resulting in O(n) (or worse) performance and my
+tests timing out ...
+
+For a small number of cases, I had to fix a compilation problem (e.g. switching
+the order of the specific & assoc #includes) - if this happened I will have mentioned
+this in the feedback somewhere.
+
+Some good solutions to this problem can be achieved in ~100 lines of code
+(excluding testing).

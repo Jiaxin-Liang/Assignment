@@ -1,0 +1,21 @@
+diff --git ../chap9/3nd Hashing/testassoc2.c
+rename from ../chap9/3nd
+rename to Hashing/testassoc2.c
+diff --git ../chap9/3nd Hashing/Cuckoo/specific.h
+rename from ../chap9/3nd
+rename to Hashing/Cuckoo/specific.h
+diff --git ../chap9/3nd Hashing/notes/Notes.c
+rename from ../chap9/3nd
+rename to Hashing/notes/Notes.c
+diff --git ../Turtle/break-samples/UnitTest/breakPolish/no suff
+rename from ../Turtle/break-samples/UnitTest/breakPolish/no
+rename to suff
+diff --git ../chap9/3nd Hashing/testassoc.c
+rename from ../chap9/3nd
+rename to Hashing/testassoc.c
+diff --git ../chap9/3nd Hashing/notes/Notes-realloc.c
+rename from ../chap9/3nd
+rename to Hashing/notes/Notes-realloc.c
+diff --git ../chap9/3nd Hashing/notes/Notes-specific.h
+rename from ../chap9/3nd
+rename to Hashing/notes/Notes-specific.h

@@ -1,0 +1,87 @@
+{
+   DO FROM 1 TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO 2 FROM 1 TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A 1 TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM 1 - 8 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM 1 TO {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM 1 TO 8
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM 1 TO 1 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM -1 TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM 1.5 TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM 8 TO 1 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM 1 TO 2 {
+      FD 10
+      RT 30
+      DO B FROM 3 TO A {
+         FD 30
+         LT 45
+      }
+   }
+}

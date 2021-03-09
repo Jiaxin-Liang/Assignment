@@ -1,0 +1,19 @@
+Individual Feedback
+-------------------
+
+./Realloc/realloc.c
+Running testassoc1 ... Looks Good
+Running testassoc2 ... Looks Good (631920 Unique Numbers)
+Running testassoc3 ... Running testassoc3 ... Looks Good
+Running testassoc4 ... Looks Good (repeated init/free) 972kbytes 0.51secs
+Running testassoc5 ... Looks Good (assoc_count(NULL)==0)
+Running testassoc6 ... Looks Good (storing value as pointer, not copied)
+Sanitizing testassoc1 ... Looks Good
+Sanitizing testassoc2 ... Looks Good
+Valgrind testassoc3 ... Looks Good
+Cuckoo&testassoc1 ... Looks Good
+Cuckoo testassoc4 ... Looks Good (repeated init/free) 968kbytes 0.51secs
+Sanitizing Cuckoo&testassoc1 ... Looks Good
+Initial Mark = 69
+Final Mark = 74
+[FINALCOMMENT] Nicely done - hash used is interesting, good coding style generally.

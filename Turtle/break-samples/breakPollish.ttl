@@ -1,0 +1,66 @@
+{
+   DO A FROM 1 TO 100 {
+      SET C := A 1 *
+      FD C
+      RT 62
+   }
+}
+
+{
+   DO A FROM 1 TO 100 {
+      SET C := * A 1  ;
+      FD C
+      RT 62
+   }
+}
+
+{
+   DO A FROM 1 TO 100 {
+      SET C := A * 1  ;
+      FD C
+      RT 62
+   }
+}
+
+{
+   DO A FROM 1 TO 100 {
+      SET C := A 1 ^ ;
+      FD C
+      RT 62
+   }
+}
+
+/*需要假设+调整的*/
+{
+   DO A FROM 1 TO 100 {
+      SET C := A B * ;
+      FD C
+      RT 62
+   }
+}
+
+{
+   DO A FROM 1 TO 100 {
+      SET C := * ;
+      FD C
+      RT 62
+   }
+}
+
+{
+   DO A FROM 1 TO 100 {
+      SET C := A 1 ;
+      FD C
+      RT 62
+   }
+}
+
+{
+    DO A FROM 1 TO 100 {
+       SET C := A * ;
+       FD C
+       RT 62
+    }
+}
+
+
