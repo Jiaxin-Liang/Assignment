@@ -1,0 +1,3 @@
+Clear array function would be nice, freeing it from main().
+Watch your idenitifer names e.g. old2new doesn't do the oppposite of new2old - maybe better names evolveForest() or something ?
+Some nice testing.

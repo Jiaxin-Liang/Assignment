@@ -1,0 +1,117 @@
+This general feedback was written as I went through the all the code. Every
+single person has at least one of these comments aimed at their work -
+almost all have multiple ones. Please read (& understand these carefully)
+and try to see how it applies to you :
+
+Lots of people pass int [Y][X], int [Y][X], int w, int h  etc. around
+to many functions - if the array and a width and a height always stick
+together, just put them in a structure and pass that around instead.
+
+Accessing arrays [x][y] is wrong - but so is [i][j] if you've ever sketched
+any kind of a graph.  I've updated the house-style (very slightly) to reflect this.
+
+It's traditional in a copy function that we keep the order a = b, i.e. copy(dst,
+src); and not copy(src, dst); Functions like strcpy() and memcpy() do it this way
+so it makes sense to keep to the convention.
+
+Would have liked to have the type of the array typedef'd and each cell
+enumerated {fire,empty,tree} etc. Most people just used a char or int
+array, or went half-way and #define FIRE etc.
+
+Some people wrote their conditions an unusual way around e.g. (0 <= y),
+it's much more traditional and reader-friendly to write these as (y >= 0)
+
+For really good testing, I wanted t believe that you'd tried *very* hard
+in cunning ways to break your code. Many people just created some obvious
+& simple tests and ran them - nothing wrong with that, but if you were
+testing a colleagues' work I bet you'd find some more interesting tests ?
+Doing things like: a[12][12] = 8; assert(a[12][12]]==8); is plain daft !!
+
+#define's are not just there to look pretty - your code must still work
+even if you change them to different values. Try changing HEIGHT/WIDTH
+in your code & check it still works, unchanged.
+
+Comments - best put before a line, rather than to the right of it,
+especially if it makes the line > 40 characters or so (you can never be sure
+how wide someone else's terminal is):
+
+/* This rather long-winded comment is used to explain it */
+int groobit(int a[Y][X], int b[R][X]); is better than:
+
+int groobit(int a[Y][X], int b[R][X]); /* This rather long-winded comment is used to explain it */
+
+
+If you're going to write comments, try to spell check them - reading
+a long comment with poor grammar and spelling never fills a reader with
+confidence :-) If it's to aid communication between the author and reader,
+it had better do the job...
+
+In general, padding arrays (to allow for easier boundary checking)
+resulted in all the rest of the code (printing, copying etc.) being
+much more complex. I still don't think it's a good trade-off.
+
+main() like all functions should be short. But main() especially, perhaps,
+because (a) it should explain in a concise manner what the program does,
+but also (2) anything in there has not really been tested, right ?
+
+Many people had functions such as evolve() that had two functions passed
+into them, the 'main' working array, and a temporary one for swapping
+boards etc. In most cases, you could have simply declared the second
+array locally to the functions concerned - it makes the function prototype
+clearer, and there isn't the need for an "odd" array lurking inside main
+(or elsewhere).
+
+#define ONE 1      does nothing to help explain your code better.
+
+I see many of you had increased the size of L; resulting in fewer,
+but bigger fires. A certain sign of pyromania :-)
+
+Several people used the function I discussed in a Live Q&A to generate
+a probability 0->1. At the time, I said "but I don't know why anyone
+would prefer that over rand()%G etc. ....
+
+Your test function must operate without printing to screen - you need
+it to run silently if all is well - there can't be a human-in-the-loop
+checking if your testing function is doing the correct thing or not  -
+it's completely automatic.
+
+Many people used malloc() to create a temporary array. Very few checked
+the return value was not NULL, and many used a 1D array and then did
+the manipulation to work out how to map 2D->1D. Why? Just create a local
+temp 2D array in the function - it makes the coding much simpler.
+
+Watch out for use of names such as 'new' for variables - it's fine in C90,
+but in other languages e.g. C++ 'new' is a keyword/reserved.
+
+A pet hate: loops that are symmetric e.g. for(i=-1; i<=+1; i++){ but
+written as something counter-intuitive such as for(i=-1; i<2; i++){
+The code is technically the same, but isn't it confusing to be using
+one for the 1st side and +2 for the other (??)
+
+Some people thought that an 8-neighbourhood meant the 256 neighbours
+around a cell. It means the one to the North, the one to the South,
+the one to the West etc.
+
+Some people got put on the naughty step. 11 people sent me a file that
+WASN'T called forest.c : things like forest_fire.c, READMEFIRST-forest.c
+etc. This means my Makefile doesn't work until I've fixed the problem
+by hand :-( 14 people sent me C99 code, not C90 code. Again, I can fix
+it if I have time, but I've asked over, and over, again to be given
+what I'm lecturing = -std=c90.  8 people sent me two .c files in the
+same submission and asked me to guess which one to mark. Downloading
+from Blackboard doesn't preserve the time-stamp, so I've had to do some
+detective work.  23 people sent me code containing TAB characters,
+which almost always end up looking really odd in my terminal and making
+indentations that are *REALLY* long. Again, it's fixable, but I've asked
+you not to, and it takes time to fix >;(
+
+Roughly, 1/3 people had clearly written their program on a Windows
+compiler.  Nothing wrong with that PROVIDED it was later checked on a
+Linux machine of some kind. A decent fraction of these weren't though. If
+in doubt: *Code on a Linux machine*.
+
+In general, people who put all their tree logic inside a double-loop
+for the whole board e.g. (for(y=.. for(x=; if(a[y][x]==tree ...) found
+testing difficult because you can only test whole boards/forest at a
+time. If this logic where applied to a single element of the array at
+a time, it makes the function a little easier to test.

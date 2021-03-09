@@ -1,0 +1,13 @@
+2.White-box testing
+
+    This program uses a testing framework called "MinUnit" to conduct white box testing.
+    The framework test parser functions by comparing the output of unit functions with the expected ones automatically.
+    Use different samples of .ttl programs in break-samples directory to test if a specific function is stable.
+
+    A MinUnit test case is a minimal unit test framework for C.
+    It is just a function that returns 0 (null) if the tests pass.
+    If the test fails, the function should return a string describing the failing test.
+    The mu_assert is simply a macro that returns a string if the expression passed to it is false.
+    The mu_runtest macro calls another test case and returns if that test case fails.
+
+    ( MinUnit's reference: http://www.jera.com/techinfo/jtns/jtn002.html#License )

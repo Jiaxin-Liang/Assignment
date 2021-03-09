@@ -1,0 +1,26 @@
+Show a testing strategy on the above -
+    you should give details of 【unit testing】, 【white/blackbox】 testing done on your code.
+    Describe any 【test-harnesses】 used.
+    In addition, give examples of the 【output】 of many 【different turtle programs】.
+
+1.Blackbox testing
+    In "test" directory, use several .c file to test if each component of parser/interpreter is worked functionally correctly.
+
+    use command "make test" to interpret this part.
+
+    (1) testrealloc.c tests if a table is successfully created to store the tokens of a program. Use 4 .ttl program sample
+    in "DATA" directory as input the test its functionality.
+
+    (2) testparsr.c tests if the parser is worked correctly to check grammar of a program is legal or not. Use the
+    same 4 DATA files as input as well.
+
+    (3) teststack.c tests if the stack is implementing the calculation correctly as Reversed Polish Notation. The
+    DATA/stack_testsample file gives examples of differnt input and output. The teststack.c uses this file as input, and
+    automatically compares the given output with the actual output of the stack calculator.
+
+    (4) testpoint.c tests if the basic interpreter is worked correctly, to interpret basic.c with simply FD and LT, RT instructions,
+     it is a simple version without file input, but call important drawing functions like drawFD() and turnLT(), to test
+     if its lines drawing length, direction and windows outfit etc is as expected.
+
+    (5) testinterp.c tests if the parser-interpreter is worked. Use 4 .ttl files as input, starting from basic.ttl to usevar.ttl,
+     check if the output shape is totally the same as expected at each stage, modify and improve the function set gradually.

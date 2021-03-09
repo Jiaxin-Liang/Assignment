@@ -1,0 +1,39 @@
+{
+   30 FD
+   LT 45
+}
+
+{
+   Fd 30
+   LT 45
+}
+
+{
+   F 30
+   LT 45
+}
+
+{
+   UP 30
+   LT 45
+}
+
+{
+   do A FROM 1 TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+{
+   DO A FROM 1 TO 100 {
+      set C := A 1.5 * ;
+      FD C
+      RT 62
+   }
+}
+
+{
+     FD A
+     LT 45
+ }
